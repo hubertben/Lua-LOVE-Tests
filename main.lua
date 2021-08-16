@@ -1,4 +1,4 @@
-mH = require('mouseHandler')
+require('mouseHandler')
 
 ang = 0
 ang2 = math.pi
@@ -19,8 +19,9 @@ end
 
 
 function love.update(dt)
+    mouseHandler()
     if(mouseEvent == 'pressed') then 
-        print('The Mouse was Pressed')
+        -- print('The Mouse was Pressed')
     end
 
     mouseEvent = nil
@@ -42,6 +43,11 @@ function love.draw()
 
     love.graphics.setColor(1, 1, 1)
     love.graphics.draw(leo, love.graphics.getWidth()/2, love.graphics.getHeight()/2, 0, .5, .5, leo_width / 2, leo_height / 2)
+
+    for index, value in ipairs(shapes) do
+        love.graphics.setColor(1, 1, 1)
+        love.graphics.circle('fill', value.xPos, value.yPos, 2)
+    end
 end
 
 
